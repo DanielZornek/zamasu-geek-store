@@ -1,0 +1,36 @@
+@import "variaveis.css";
+
+.botao{
+	padding: 1em 3.2em;
+	font-size: .85em;
+	border-radius: 1.2em;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-weight: bold;
+	transition: .2s ease-in-out;
+}
+
+.botao1{
+	border: 1px solid var(--cor3);
+	color: var(--cor3);
+	background-color: var(--cor1);
+}
+
+.botao1:hover{
+	border: 1px solid var(--cor1);
+	color: var(--cor1);
+	background-color: var(--cor3);
+}
+
+.botao2{
+	border: 1px solid var(--cor1);
+	color: var(--cor1);
+	background-color: var(--cor4);
+}
+
+.botao2:hover{
+	border: 1px solid #fff;
+	color: #fff;
+	background-color: var(--cor2);
+}

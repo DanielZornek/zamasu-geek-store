@@ -1,0 +1,45 @@
+@import 'reset.css'; 
+
+main{
+	width: 100%;
+	display: flex;
+	padding: 5em;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cor1);
+}
+
+main h1{
+	color: #fff;
+	margin-bottom: 2em;
+}
+
+.form{
+	display: flex;
+	flex-direction: column;
+	width: 50vw;
+	gap: 60px;
+	padding: 3em 4em;
+	border-radius: .8em;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form-inputs{
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.form-inputs label{
+	color: var(--cor3);
+	font-weight: bold;
+}
+
+.form-inputs input,
+.form-inputs select{
+	padding: .8em;
+	font-size: 1em;
+	outline: none;
+	border-radius: .8em;
+}

@@ -1,0 +1,108 @@
+@import 'reset.css';
+
+main{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 1.2em;
+}
+
+body{
+	background-color: var(--cor2);
+	background-size: 400%;
+	background-position: left top;
+	background-image: linear-gradient(-220deg, #000, var(--cor1), var(--cor2));
+	animation-name: animaFundo;
+	animation-duration: 8s;
+	animation-iteration-count: infinite;
+	transition: 2s ease-in-out;
+}
+
+@keyframes animaFundo{
+	0%{
+		background-position: left top;
+	}90%{
+		background-position: right bottom;
+	}
+}
+
+.mainTitle{
+	margin: 1.2em 0;
+	color: var(--cor3);
+	font-family: var(--font-jaro);
+	font-weight: normal;
+	letter-spacing: .2em;
+	font-size: 3.4em;
+}
+
+.products{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.products-card{
+	max-width: 380px;
+	overflow: hidden;
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 2px solid var(--cor2);
+	border-radius: 1em;
+	display: flex;
+	flex-direction: column;
+}
+.products-card-img{
+	width: 100%;
+	height: 50%;
+	transition: .2s ease-in-out;
+}
+.products-card-img:hover{
+	transform: scale(1.2);
+}
+
+.products-card-info{
+	height: 50%;
+	margin-top: .6em;
+	padding: 1.2em;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2em;
+	font-size: 1.1em;
+	color: #fff;
+}
+
+.products-card-info h3{
+	font-family: var(--font-jaro);
+	font-weight: bold;
+	letter-spacing: .1em;
+	font-size: 1.8em;
+	color: var(--cor2);
+}
+
+.products-card-info-description,
+.products-card-info-price,
+.products-card-info-storage{
+	text-align: justify;
+}
+
+.products-card-info-storage{
+	font-weight: bolder;
+	font-size: 1.4em;
+}
+
+.products-card-info-cart{
+	align-self: flex-end;
+	justify-self: flex-end;
+	width: 45%;
+	background-color: var(--cor5);
+	padding: .4em 1.4em; 
+	border: 1px solid var(--cor2);
+}
+
+.products-card-info-cart:hover{
+	 background-color: transparent;
+}
+
+.products-card-info-cart img{
+	width: 50px;
+}

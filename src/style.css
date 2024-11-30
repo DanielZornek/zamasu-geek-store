@@ -1,0 +1,138 @@
+@import 'variaveis.css';
+
+html{
+	overflow-x: hidden;
+}
+
+body{
+	background-color: var(--cor1);
+}
+
+header{
+	width: 100%;
+	padding: 1em 4em;
+	display: flex;
+	flex-direction: row;	
+	justify-content: space-between;
+	align-items: center;
+	background-color: transparent;
+}
+
+.logo h2{
+	font-family: var(--font-jaro);
+	font-weight: 500;
+	color: var(--cor3);
+}
+
+.nav{
+	width: 45%;
+	padding: .5em;
+}
+
+.nav-list{
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+	justify-content: space-evenly;
+}
+
+.nav-list-item-link{
+	text-decoration: none;
+	color: #fff;
+	transition: .2s ease-in-out;
+	font-size: 1.3em;
+}
+
+.nav-list-item-link:hover{
+	text-decoration: underline;
+}
+
+.userInfo{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.userInfo-link{
+	max-width: 40%;
+}
+
+.userInfo-link img{
+	max-width: 85%;
+	transition: .2s ease-in-out;
+}
+
+.userInfo-link img:hover{
+	opacity: 65%;
+}
+
+/* Main */
+
+/* Banner Main */
+.bannerMain{
+	height: 65vh;
+	width: 100%;
+	background-color: var(--cor4);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.bannerMain-text{
+	max-width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.bannerMain-text-title{
+	font-family: var(--font-jaro);
+	font-weight: 300;
+	font-size: 2.5em;
+}
+
+.bannerMain-img{
+	height: 100%;
+}
+
+.bannerMain-img img {
+	max-height: 100%;
+	animation-name: animaBlack;
+	animation-duration: 14s; /* Duração da animação */
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite; /* Animação contínua */
+	transition: .2s ease-in-out;
+}
+
+@keyframes animaBlack {
+	0% {
+		filter: unset; /* Inicial */
+	}
+	49% {
+		filter: hue-rotate(400deg) saturate(4) brightness(300%); /* Brilho */
+	}
+	50% {
+		filter: unset; /* Após o brilho */
+	}
+	100% {
+		filter: unset; /* Final */
+	}
+}
+
+/* Banner Main */
+
+.sponsors{
+	width: 100%;
+	background-color: var(--cor2);
+	padding: 2em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.sponsors img{
+	max-width: 10%;
+	height: auto;
+}
+
+/* Main */

@@ -1,0 +1,12 @@
+/* fonte */
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+	--fonte-open-sans: "Open Sans", sans-serif;
+	--font-jaro: "Jaro", sans-serif;
+	--cor1: #264653;
+	--cor2: #2a9d8f;
+	--cor3: #e9c46a;
+	--cor4: #f4a261;
+	--cor5: #e76f51;
+}

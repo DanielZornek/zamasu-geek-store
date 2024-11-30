@@ -1,0 +1,12 @@
+Paleta
+
+#264653: Charcoat
+#2a9d8f: Persian Green
+#e9c46a: Saffron
+#f4a261: Sandy Brown
+#e76f51: Burnt Sienna
+
+/* fonte */
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+"Open Sans", sans-serif
+"Jaro", sans-serif
