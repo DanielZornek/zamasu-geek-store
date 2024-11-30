@@ -12,41 +12,9 @@
 	<link rel="stylesheet" type="text/css" href="src/componentes.css">
 </head>
 <body>
-	<!-- Header -->
-	<header>
-		<!-- Logo -->
-		<section class="logo">
-			<h2>Zamasu GeekStore</h2>
-		</section>
-		<!-- Nav -->
-		<nav class="nav">
-			<ul class="nav-list">
-				<li class="nav-list-item">
-					<a class="nav-list-item-link" href="#">Home</a>
-				</li>
-				<li class="nav-list-item">
-					<a class="nav-list-item-link" href="#">Sobre Nós</a>
-				</li>
-				<li class="nav-list-item">
-					<a class="nav-list-item-link" href="produtos.php">Produtos</a>
-				</li>
-				<li class="nav-list-item">
-					<a class="nav-list-item-link" href="#">Contato</a>
-				</li>
-			</ul>
-		</nav>
-		<!-- Nav end -->
-		<section class="userInfo">
-			<a href="#" class="userInfo-link">
-				<img src="src/images/cart-blue.png" alt="cart image">
-			</a>
-			<a href="#" class="userInfo-link">
-				<img src="src/images/user-colored.png" alt="cart image">
-			</a>
-		</section>
-	</header>
-	<!-- Header -->
-
+	<?php
+		require "header.php";
+	?>
 	<!-- Main -->
 	<main>
 		<div class="bannerMain">

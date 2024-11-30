@@ -17,6 +17,7 @@
 			foreach ($adminDados as $registro) {
 				if($usuario == $registro["usuario"] && $senha == $registro["senha"]){
 					$_SESSION["logadoAdmin"] = true;
+					setcookie("logadoAdmin", $_SESSION["logadoAdmin"], time() + 3600, "/");
 					echo "<script>
 							alert('Logado com Sucesso!');
 							window.location.href = 'cadastro_produtos.php';

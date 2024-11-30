@@ -1,39 +1,24 @@
 <?php
-	session_start();
-
 	if(!isset($_COOKIE['logadoAdmin'])){
 		echo "<script>
 				alert('Você deve estar logado como admin!');
 				window.location.href = 'index.php';
 				</script>";
 	}
-
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
-		if(isset($_POST["sair"])){
-			unset($_SESSION['logadoAdmin']);
-			setcookie("logadoAdmin", "", time() - 3600, "/");
-			echo "<script>
-						alert('saiu');
-						window.location.href = 'admin.php';
-					</script>";
-		}
-	}
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Cadastro de Produtos</title>
+	<title>Atualizar Produtos</title>
 	<link rel="stylesheet" type="text/css" href="src/style_forms.css">
 	<link rel="stylesheet" type="text/css" href="src/componentes.css">
-	<style type="text/css">	
-		textarea{
-			min-width: 100%;
-			max-width: 100%;
-			font-size: 1em;
-			outline: none;
-			padding: .6em;
+	<style type="text/css">
+		.info{
+			color: var(--cor3);
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -42,20 +27,24 @@
 		require "header_admin.php";
 	?>
 	<main>
-		<h1>Cadastro de Produtos</h1>
-		<form class="form" action="cadastrar_produto.php" method="POST" enctype="multipart/form-data">
+		<h1>Atualização de Produtos</h1>
+		<form class="form" action="atualizar_produto.php" method="POST" enctype="multipart/form-data">
 			<section class="form-inputs">
-				<label for="nomeProduto">Nome: </label>
+				<label for="codigoProduto">Código do Produto: </label>
+				<input type="number" name="codigoProduto" id="codigoProduto" step="1" min="1" required>
+			</section>
+			<section class="form-inputs">
+				<label for="nomeProduto">Novo Nome: </label>
 				<input type="text" name="nomeProduto" id="nomeProduto" required>
 			</section>
 			<section class="form-inputs">
-				<label for="descricaoProduto">Descrição: </label>
+				<label for="descricaoProduto"> Nova Descrição: </label>
 				<textarea maxlength="255" name="descricaoProduto" id="descricaoProduto">
 					
 				</textarea required>
 			</section>
 			<section class="form-inputs">
-				<label for="categoriaProduto">Categoria:</label>
+				<label for="categoriaProduto">Nova Categoria:</label>
 				<select name="categoriaProduto" id="categoriaProduto" required>
 					<option value="Camisetas">Camisetas</option>
 					<option value="Canecas">Canecas</option>
@@ -64,11 +53,10 @@
 				</select>
 			</section>
 			<section class="form-inputs">
-				<label for="imagemProduto">Imagem: (Apenas jpeg e png)</label>
-				<input type="file" name="imagemProduto" id="imagemProduto" accept="image/jpeg, image/png" multiple required>
+				<p class="info">Para não sobrecarregar o servidor optamos por não colocar a opção de atualizar imagens</p>
 			</section>
 			<section class="form-inputs">
-				<label for="precoProduto">Preço:</label>
+				<label for="precoProduto">Novo Preço:</label>
 				<input type="number" name="precoProduto" id="precoProduto" step="0.01" placeholder="2983.87" required>
 			</section>
 			<section class="form-inputs">
@@ -76,7 +64,7 @@
 				<input type="number" name="quantidadeProduto" id="quantidadeProduto" required>
 			</section>
 			<button class="botao botao2" name="cadastrar">
-				Cadastrar
+				Atualizar
 			</button>
 		</form>
 	</main>

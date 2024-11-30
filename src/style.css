@@ -8,64 +8,6 @@ body{
 	background-color: var(--cor1);
 }
 
-header{
-	width: 100%;
-	padding: 1em 4em;
-	display: flex;
-	flex-direction: row;	
-	justify-content: space-between;
-	align-items: center;
-	background-color: transparent;
-}
-
-.logo h2{
-	font-family: var(--font-jaro);
-	font-weight: 500;
-	color: var(--cor3);
-}
-
-.nav{
-	width: 45%;
-	padding: .5em;
-}
-
-.nav-list{
-	display: flex;
-	flex-direction: row;
-	list-style: none;
-	justify-content: space-evenly;
-}
-
-.nav-list-item-link{
-	text-decoration: none;
-	color: #fff;
-	transition: .2s ease-in-out;
-	font-size: 1.3em;
-}
-
-.nav-list-item-link:hover{
-	text-decoration: underline;
-}
-
-.userInfo{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-
-.userInfo-link{
-	max-width: 40%;
-}
-
-.userInfo-link img{
-	max-width: 85%;
-	transition: .2s ease-in-out;
-}
-
-.userInfo-link img:hover{
-	opacity: 65%;
-}
-
 /* Main */
 
 /* Banner Main */

@@ -10,6 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="src/style_produtos.css">
 </head>
 <body>
+	<?php
+		require "header.php";
+	?>
 	<main>
 		<h1 class="mainTitle">Produtos</h1>
 		<!-- <form action="#" method="GET">
@@ -58,23 +61,13 @@
 
 		function mouseDentro(elemento){
 			elemento.style.background = "transparent";
+			elemento.childNodes[1].src = "src/images/cart-blue.png";
 		}
 
 		function mouseFora(elemento){
-			console.log("fora");
+			elemento.style.background = "var(--cor5)";
+			elemento.childNodes[1].src = "src/images/cart.png";
 		}
-
-		// for(let i = 0; i < cart_product.length; i++){
-		// 	cart_product[i].addEventListener("mouseover", ()=>{
-		// 		console.log();
-		// 		cart_product[i].childNodes[1].src = "src/images/cart-blue.png";
-		// 	});
-
-		// 	cart_product[i].addEventListener("mouseout", ()=>{
-		// 		console.log();
-		// 		cart_product[i].childNodes[1].src = "src/images/cart.png";
-		// 	});
-		// }
 
 	</script>
 </body>
