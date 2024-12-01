@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Produtos</title>
 	<link rel="stylesheet" type="text/css" href="src/style_produtos.css">
+	<link rel="stylesheet" type="text/css" href="src/componentes.css">
 </head>
 <body>
 	<?php
@@ -15,9 +16,9 @@
 	?>
 	<main>
 		<h1 class="mainTitle">Produtos</h1>
-		<!-- <form action="#" method="GET">
-			<button type="send">Pesquisar</button>
-		</form> -->
+		<?php
+			require "search.php";
+		?>
 		<div class="products">
 			<?php
 				foreach ($produtos as $produto) {

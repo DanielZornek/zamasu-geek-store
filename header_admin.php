@@ -24,6 +24,9 @@
 			font-weight: bolder;
 			text-decoration: none;
 		}
+		.cadastrar{
+			background-color: var(--cor2);
+		}
 		.deletar{
 			background-color: var(--cor5);
 		}
@@ -37,6 +40,10 @@
 		.atualizar:hover{
 			background-color: transparent;
 			color: var(--cor3);
+		}
+		.cadastrar:hover{
+			background-color: transparent;
+			color: var(--cor2);
 		}
 		header button{
 			padding: 1em 2em;
@@ -60,10 +67,13 @@
 		<nav class="nav">
 			<ul class="nav-list">
 				<li class="nav-list-item">
+					<a class="nav-list-item-link cadastrar" href="cadastro_produtos.php">Cadastrar Produtos</a>
+				</li>
+				<li class="nav-list-item">
 					<a class="nav-list-item-link atualizar" href="atualiza_produto.php">Atualizar Produtos</a>
 				</li>
 				<li class="nav-list-item">
-					<a class="nav-list-item-link deletar" href="deletar_produto.php">Deletar Produtos</a>
+					<a class="nav-list-item-link deletar" href="deleta_produto.php">Deletar Produtos</a>
 				</li>
 			</ul>
 		</nav>

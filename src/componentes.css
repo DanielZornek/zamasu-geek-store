@@ -20,17 +20,17 @@
 .botao1:hover{
 	border: 1px solid var(--cor1);
 	color: var(--cor1);
-	background-color: var(--cor3);
+	background-color: transparent;
 }
 
 .botao2{
 	border: 1px solid var(--cor1);
-	color: var(--cor1);
-	background-color: var(--cor4);
+	color: #fff;
+	background-color: var(--cor2);
 }
 
 .botao2:hover{
 	border: 1px solid #fff;
 	color: #fff;
-	background-color: var(--cor2);
+	background-color: transparent;
 }

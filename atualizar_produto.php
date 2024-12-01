@@ -27,7 +27,10 @@
 
 			$stmt->execute();
 
-			echo "Atualização feita com sucesso!";
+			echo "<script>
+					alert('Atualização feita com sucesso');
+					window.location.href = 'atualiza_produto.php';
+				</script>";
 		}catch(PDOExecption $e){
 			echo "Erro ao atualizar produto: <br>".$e->getMessage();
 		}

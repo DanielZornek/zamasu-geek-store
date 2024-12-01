@@ -1,4 +1,5 @@
 <?php
+	require "sair_admin.php";
 	if(!isset($_COOKIE['logadoAdmin'])){
 		echo "<script>
 				alert('Você deve estar logado como admin!');
@@ -63,7 +64,7 @@
 				<label for="quantidadeProduto">Quantidade em estoque:</label>
 				<input type="number" name="quantidadeProduto" id="quantidadeProduto" required>
 			</section>
-			<button class="botao botao2" name="cadastrar">
+			<button class="botao botao1" name="atualizar">
 				Atualizar
 			</button>
 		</form>

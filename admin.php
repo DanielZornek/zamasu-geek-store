@@ -1,6 +1,6 @@
 <?php
 	require "conexao.php";
-
+	require "sair_admin.php";
 	session_start();
 
 	if($_SERVER['REQUEST_METHOD'] === "POST"){
@@ -20,7 +20,7 @@
 					setcookie("logadoAdmin", $_SESSION["logadoAdmin"], time() + 3600, "/");
 					echo "<script>
 							alert('Logado com Sucesso!');
-							window.location.href = 'cadastro_produtos.php';
+							window.location.href = 'admin.php';
 
 						</script>";
 				}else{
@@ -45,27 +45,39 @@
 	<title>Admin</title>
 	<link rel="stylesheet" type="text/css" href="src/style_forms.css">
 	<link rel="stylesheet" type="text/css" href="src/componentes.css">
+	<style type="text/css">
+		main{
+			height: 100vh;
+		}p{
+			color: #fff;
+			text-align: center;
+			font-size: 1.4em;
+		}
+	</style>
 </head>
 <body>
+
+	<?php
+		if(isset($_COOKIE['logadoAdmin'])){
+			require "header_admin.php";
+		}
+	?>
+
 	<main>
-		<h1>Área Restrita!</h1>
+		<?php
+			if(isset($_COOKIE['logadoAdmin'])){
+				echo "<h1>
+							Bem-vindo Admin!
+						</h1>
 
-		<form class="form" action="#" method="POST">
-			<section class="form-inputs">
-				<label for="usuarioAdmin">Usuário: </label>
-				<input type="text" name="usuarioAdmin" id="usuarioAdmin" required>
-			</section>
-
-			<section class="form-inputs">
-				<label for="senhaAdmin">Senha: </label>
-				<input type="password" name="senhaAdmin" id="senhaAdmin" required>	
-			</section>
-
-			<button class="botao botao2" name="entrar">
-				Entrar
-			</button>
-
-		</form>
+						<p>
+							Seu login durará cerca de 1 hora, depois disso você terá de logar novamente
+						</p>";
+			}else{
+				require "form_admin.php";
+			}
+		?>
+		
 	</main>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+	require "sair_admin.php";
 	session_start();
 
 	if(!isset($_COOKIE['logadoAdmin'])){
@@ -8,16 +9,6 @@
 				</script>";
 	}
 
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
-		if(isset($_POST["sair"])){
-			unset($_SESSION['logadoAdmin']);
-			setcookie("logadoAdmin", "", time() - 3600, "/");
-			echo "<script>
-						alert('saiu');
-						window.location.href = 'admin.php';
-					</script>";
-		}
-	}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
