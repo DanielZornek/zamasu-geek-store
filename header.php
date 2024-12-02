@@ -32,10 +32,15 @@
 	color: #fff;
 	transition: .2s ease-in-out;
 	font-size: 1.3em;
+	padding: 1em;
+	border-radius: .8em;
+	transition: .2s ease-in-out;
 }
 
 .nav-list-item-link:hover{
 	text-decoration: underline;
+	background-color: var(--cor3);
+	color: var(--cor1);
 }
 
 .userInfo{
@@ -57,13 +62,12 @@
 	opacity: 65%;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 968px){
 	header,
 	.nav-list{
-		background-color: #000;
 		flex-direction: column;
 		align-items: center;
-		gap: 2em;
+		gap: 2.5em;
 	}
 }
 </style>
@@ -80,7 +84,7 @@
 				<a class="nav-list-item-link" href="index.php">Home</a>
 			</li>
 			<li class="nav-list-item">
-				<a class="nav-list-item-link" href="#">Sobre Nós</a>
+				<a class="nav-list-item-link" href="sobre.php">Sobre Nós</a>
 			</li>
 			<li class="nav-list-item">
 				<a class="nav-list-item-link" href="produtos.php">Produtos</a>

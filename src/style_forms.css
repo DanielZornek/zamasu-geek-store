@@ -52,3 +52,35 @@ main h1{
 	padding: .6em;
 	border-radius: .8em;
 }
+
+.link{
+	color: #fff;
+}
+
+#enviar {
+    padding: 0.8em 2em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--cor2);
+    border: none;
+    border-radius: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#enviar:hover {
+    background-color: var(--cor3);
+    transform: scale(1.05);
+}
+
+#enviar:active {
+    background-color: var(--cor4);
+    transform: scale(1);
+}
+
+@media screen and (max-width: 768px){
+	.form{
+		width: 100%;
+	}
+}

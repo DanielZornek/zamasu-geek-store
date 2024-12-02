@@ -129,3 +129,9 @@ body{
 .products-card-info-cart img{
 	width: 50px;
 }
+
+@media screen and (max-width: 968px){
+	main{
+		width: 100%;
+	}
+}

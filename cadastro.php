@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="src/reset.css">
-    <link rel="stylesheet" href="src/form.css">
+    <link rel="stylesheet" href="src/style_forms.css">
 </head>
 <body>
     <main>

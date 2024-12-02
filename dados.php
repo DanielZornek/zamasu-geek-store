@@ -28,7 +28,7 @@ if (!$usuario) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - <?= $usuario['nm_usuario'] ?></title>
     <link rel="stylesheet" href="src/reset.css">
-    <link rel="stylesheet" href="src/form.css">
+    <link rel="stylesheet" href="src/style_forms.css">
     <link rel="stylesheet" href="src/perfil.css">
     <link rel="stylesheet" href="src/modal.css">
 </head>
