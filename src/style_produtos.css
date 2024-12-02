@@ -8,8 +8,10 @@ main{
 }
 
 body{
+	min-height: 100vh;
 	background-color: var(--cor2);
 	background-size: 400%;
+	background-repeat: no-repeat;
 	background-position: left top;
 	background-image: linear-gradient(-220deg, #000, var(--cor1), var(--cor2));
 	animation-name: animaFundo;
@@ -43,6 +45,12 @@ body{
 	justify-content: space-evenly;
 	gap: 1.2em;
 }
+
+.products-titleInfo{
+	color: var(--cor4);
+	text-align: center;
+}
+
 .products-card{
 	max-width: 380px;
 	overflow: hidden;
@@ -51,7 +59,21 @@ body{
 	border-radius: 1em;
 	display: flex;
 	flex-direction: column;
+	animation-name: animaCard;
+	animation-duration: 2.5s;
+	transition: .2s ease-in-out;
 }
+
+@keyframes animaCard{
+	0%{
+		opacity: 0;
+		transform: translateY(40px);
+	}100%{
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
 .products-card-img{
 	width: 100%;
 	height: 50%;
@@ -73,11 +95,11 @@ body{
 }
 
 .products-card-info h3{
-	font-family: var(--font-jaro);
-	font-weight: bold;
+	font-family: var(--font-open-sans);
+	font-weight: 900;
 	letter-spacing: .1em;
-	font-size: 1.8em;
-	color: var(--cor2);
+	font-size: 1.4em;
+	color: var(--cor3);
 }
 
 .products-card-info-description,

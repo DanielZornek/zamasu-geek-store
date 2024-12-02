@@ -1,0 +1,74 @@
+@import 'reset.css'; 
+body{
+	background-color: var(--cor1);
+}
+
+main{
+	width: 100%;
+	display: flex;
+	padding: 5em;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--cor1);
+}
+
+main h1{
+	color: #fff;
+	margin-bottom: 2em;
+}
+
+.form{
+	display: flex;
+	flex-direction: column;
+	width: 50vw;
+	gap: 60px;
+	padding: 3em 4em;
+	border-radius: .8em;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.form-inputs{
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.form-inputs label{
+	color: var(--cor3);
+	font-weight: bold;
+}
+
+.form-inputs input,
+.form-inputs select{
+	padding: .8em;
+	font-size: 1em;
+	outline: none;
+	border-radius: .8em;
+}
+
+.link{
+	color: #fff;
+}
+
+#enviar {
+    padding: 0.8em 2em;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--cor2);
+    border: none;
+    border-radius: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#enviar:hover {
+    background-color: var(--cor3);
+    transform: scale(1.05);
+}
+
+#enviar:active {
+    background-color: var(--cor4);
+    transform: scale(1);
+}

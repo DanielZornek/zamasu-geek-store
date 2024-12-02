@@ -6,7 +6,7 @@
 	flex-direction: row;	
 	justify-content: space-between;
 	align-items: center;
-	background-color: transparent;
+	background-color: var(--cor1);
 }
 
 .logo h2{
@@ -76,16 +76,16 @@
 				<a class="nav-list-item-link" href="produtos.php">Produtos</a>
 			</li>
 			<li class="nav-list-item">
-				<a class="nav-list-item-link" href="#">Contato</a>
+				<a class="nav-list-item-link" href="contato.php">Contato</a>
 			</li>
 		</ul>
 	</nav>
 	<!-- Nav end -->
 	<section class="userInfo">
-		<a href="#" class="userInfo-link">
+		<a href="carrinho.php" class="userInfo-link">
 			<img src="src/images/cart-blue.png" alt="cart image">
 		</a>
-		<a href="#" class="userInfo-link">
+		<a href="<?php echo isset($_COOKIE["usuario_email"]) ? "dados.php" : "cadastro.php"; ?>" class="userInfo-link">
 			<img src="src/images/user-colored.png" alt="cart image">
 		</a>
 	</section>

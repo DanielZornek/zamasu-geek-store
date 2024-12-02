@@ -40,7 +40,7 @@
 								</p>
 
 							</section>
-								<a onmouseenter='mouseDentro(this)' onmouseleave='mouseFora(this)' class='products-card-info-cart' href='produtos.php?".$produto['cd_produto']."'>
+								<a onmouseenter='mouseDentro(this)' onmouseleave='mouseFora(this)' class='products-card-info-cart' href='carrinho.php?cd_produto=".$produto['cd_produto']."&quantidade_maxima=".$produto['qt_estoque_produto']."'>
 									<img class='products-card-info-cart-img' src='src/images/cart.png'>
 								</a>
 							</div>"; 
@@ -51,6 +51,15 @@
 	<script type="text/javascript">
 		let estoque_produto = document.getElementsByClassName("storage-product");
 		let cart_product = document.querySelectorAll(".products-card-info-cart");
+		let search_data = document.querySelector(".products");
+
+		if(search_data.children.length === 0){
+			let titulo_h2_info = document.createElement("h2");
+			titulo_h2_info.textContent = "Nenhum Produto encontrado na base de dados";
+			titulo_h2_info.classList.add("products-titleInfo");
+
+			search_data.appendChild(titulo_h2_info);
+		}
 
 		for(let i = 0; i < estoque_produto.length; i++){
 			if(Number(estoque_produto[i].innerText) < 6){

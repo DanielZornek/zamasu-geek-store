@@ -18,15 +18,6 @@
 	<title>Cadastro de Produtos</title>
 	<link rel="stylesheet" type="text/css" href="src/style_forms.css">
 	<link rel="stylesheet" type="text/css" href="src/componentes.css">
-	<style type="text/css">	
-		textarea{
-			min-width: 100%;
-			max-width: 100%;
-			font-size: 1em;
-			outline: none;
-			padding: .6em;
-		}
-	</style>
 </head>
 <body>
 	<?php

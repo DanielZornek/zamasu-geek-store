@@ -43,3 +43,12 @@ main h1{
 	outline: none;
 	border-radius: .8em;
 }
+
+.form-inputs textarea{
+	min-width: 100%;
+	max-width: 100%;
+	font-size: 1em;
+	outline: none;
+	padding: .6em;
+	border-radius: .8em;
+}

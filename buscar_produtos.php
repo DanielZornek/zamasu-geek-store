@@ -29,7 +29,6 @@
 			$stmt->bindParam(":cat", $_GET['categoriaProduto']);
 			$stmt->bindParam(":nm", $nome_produto);
 
-			$stmt->execute();
 		}else if(trim($nome_pr) != "" && $_GET['categoriaProduto'] == "Tudo"){
 			$stmt = $pdo->prepare("SELECT * FROM PRODUTO
 				WHERE nm_produto LIKE :nm
@@ -40,7 +39,6 @@
 			$stmt->bindParam(":qtd", $quantidade, PDO::PARAM_INT);
 			$stmt->bindParam(":nm", $nome_produto);
 
-			$stmt->execute();
 		}else if(trim($nome_pr) == "" && isset($_GET['categoriaProduto']) && $_GET['categoriaProduto'] != "Tudo") {
 			$stmt = $pdo->prepare("SELECT * FROM PRODUTO
 				WHERE nm_categoria LIKE :cat
@@ -48,16 +46,14 @@
 
 			$stmt->bindParam(":qtd", $quantidade, PDO::PARAM_INT);
 			$stmt->bindParam(":cat", $_GET['categoriaProduto']);
-
-			$stmt->execute();
 		}else {
 			$stmt = $pdo->prepare("SELECT * FROM PRODUTO
 				LIMIT :qtd");
 
 			$stmt->bindParam(":qtd", $quantidade, PDO::PARAM_INT);
-
-			$stmt->execute();
 		}
+
+		$stmt->execute();
 
 		$produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
