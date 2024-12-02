@@ -1,0 +1,113 @@
+body{
+	background-image: linear-gradient(-220deg, #000, var(--cor5));
+	background-size: 400%;
+	background-repeat: no-repeat;
+	background-position: left top;
+	animation-name: animaFundo;
+	animation-duration: 8s;
+	animation-iteration-count: infinite;
+	transition: 2s ease-in-out;
+}
+
+@keyframes animaFundo{
+	0%{
+		background-position: left top;
+	}90%{
+		background-position: right bottom;
+	}
+}
+
+h1{
+	color: var(--cor3);
+	text-align: center;
+	margin: 1.2em 0;
+	font-weight: bold;
+	font-size: 2.6em;
+	text-shadow: 2px 2px 2px #000;
+	letter-spacing: .2em;
+	font-family: var(--font-jaro);
+}
+
+.main{
+	color: #fff;
+	width: 85%;
+	margin: 0 auto;
+	text-align: center;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.main-container{
+	margin-top: 2em;
+	background-image: url("images/fundo.jpg");
+	height: 80vh;
+	width: 100%vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.main-container-characters{
+	display: flex;
+	flex-direction: row;
+	width: 50%;
+	margin: 0 auto;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.main-container-character{
+	height: 120px;
+	width: 100px;
+	background-color: var(--cor2);
+	cursor: pointer;
+}
+
+.danny{
+	background-image: url("images/danny.gif");
+	background-size: 280%;
+	background-position: top center;
+}
+
+.paulo{
+	background-image: url("images/pk.gif");
+	background-size: 250%;
+	background-position: top center;
+}
+
+.main-container-characters-body{
+	height: 75%;
+}
+
+.main-container-characters-body-gif{
+	object-fit: cover;
+	height: 100%;
+}
+
+.info{
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	font-size: 1.2em;
+	padding: 1.4em;
+}
+
+.info-title{
+	color: var(--cor2);
+}
+
+.selected{
+	outline: 4px solid #fff;
+	filter: none;
+}
+
+.deselected{
+	outline: none;
+	filter: grayscale(60%);
+}
+
+.deselected:hover{
+	filter: none;
+}

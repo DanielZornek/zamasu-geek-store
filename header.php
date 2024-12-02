@@ -56,6 +56,16 @@
 .userInfo-link img:hover{
 	opacity: 65%;
 }
+
+@media screen and (max-width: 768px){
+	header,
+	.nav-list{
+		background-color: #000;
+		flex-direction: column;
+		align-items: center;
+		gap: 2em;
+	}
+}
 </style>
 <!-- Header -->
 <header>
