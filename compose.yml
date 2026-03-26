@@ -1,0 +1,18 @@
+services:
+  # O seu código que está lá no Docker Hub
+  loja-zamasu:
+    image: seu-usuario/zamasu-loja:v1 
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  # O banco de dados (baixa direto do repositório oficial do MySQL)
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: zamasu123
+      MYSQL_DATABASE: bancoZamasuStore
+    volumes:
+      # Aqui ele usa o script que está na sua pasta para criar as tabelas
+      - ./banco.sql:/docker-entrypoint-initdb.d/init.sql

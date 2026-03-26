@@ -1,40 +1,38 @@
 <?php
-	require "conexao.php";
-	require "sair_admin.php";
-	session_start();
+    // 1. A PRIMEIRA COISA SEMPRE
+    session_start();
 
-	if($_SERVER['REQUEST_METHOD'] === "POST"){
-		$usuario = $_POST["usuarioAdmin"];
-		$senha = $_POST["senhaAdmin"];
+    // 2. IMPORTAÇÕES
+    require "conexao.php";
+    require "sair_admin.php"; // Certifique-se que este arquivo NÃO tem o session_start dentro dele
 
-		if(!empty($usuario) && !empty($senha) && isset($_POST['entrar'])){
-			try{
-			$stmt = $pdo->prepare("SELECT usuario, senha FROM ADMIN");
+    // 3. LÓGICA DE LOGIN
+    if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['entrar'])) {
+        $usuario = $_POST["usuarioAdmin"];
+        $senha = $_POST["senhaAdmin"];
 
-			$stmt->execute();
+        if (!empty($usuario) && !empty($senha)) {
+            try {
+                $stmt = $pdo->prepare("SELECT usuario, senha FROM ADMIN WHERE usuario = :u AND senha = :s");
+                $stmt->execute(['u' => $usuario, 's' => $senha]);
+                $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-			$adminDados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-			foreach ($adminDados as $registro) {
-				if($usuario == $registro["usuario"] && $senha == $registro["senha"]){
-					$_SESSION["logadoAdmin"] = true;
-					setcookie("logadoAdmin", $_SESSION["logadoAdmin"], time() + 3600, "/");
-					echo "<script>
-							alert('Logado com Sucesso!');
-							window.location.href = 'admin.php';
-
-						</script>";
-				}else{
-					echo "<script>
-						alert('Credenciais inválidas');
-					</script>";
-				}
-			}
-			
-			}catch(PDOExecption $e){
-				echo "Erro ao entrar<br>" . $e->getMessage();
-			}
-		}
-	}
+                if ($admin) {
+                    $_SESSION["logadoAdmin"] = true;
+                    setcookie("logadoAdmin", "true", time() + 3600, "/");
+                    echo "<script>
+                            alert('Logado com Sucesso!');
+                            window.location.href = 'admin.php';
+                          </script>";
+                    exit;
+                } else {
+                    echo "<script>alert('Credenciais inválidas');</script>";
+                }
+            } catch (PDOException $e) {
+                echo "Erro ao entrar: " . $e->getMessage();
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>

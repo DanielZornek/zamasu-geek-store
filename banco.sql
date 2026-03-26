@@ -1,6 +1,7 @@
-CREATE DATABASE bancoZamasuStore
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_general_ci;
+-- CREATE DATABASE bancoZamasuStore
+-- CHARACTER SET utf8mb4
+-- COLLATE utf8mb4_general_ci;
+-- USE bancoZamasuStore;
 USE bancoZamasuStore;
 
 CREATE TABLE USUARIO (

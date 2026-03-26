@@ -1,49 +1,53 @@
 <?php
-	require "conexao.php";
+    require "conexao.php";
 
-	if($_SERVER["REQUEST_METHOD"] === "POST"){
-		$nome = $_POST["nomeProduto"];
-		$descricao = $_POST["descricaoProduto"];
-		$categoria = $_POST["categoriaProduto"];
-		$preco = $_POST['precoProduto'];
-		$quantidade = $_POST['quantidadeProduto'];
-		$diretorio_destino_imagem = 'src/images/uploads/';
+    if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cadastrar_produto'])){
+        $nome = $_POST["nomeProduto"];
+        $descricao = $_POST["descricaoProduto"];
+        $categoria = $_POST["categoriaProduto"];
+        $preco = $_POST['precoProduto'];
+        $quantidade = $_POST['quantidadeProduto'];
+        
+        // Pasta onde a imagem será salva dentro do container
+        $diretorio_destino_imagem = 'src/images/uploads/';
 
-		if(isset($_FILES['imagemProduto']) && !empty($_FILES['imagemProduto']['name'])){
-		    
-		    $nome_arquivo = $_FILES['imagemProduto']['name'];
+        // Verifica se o arquivo foi enviado sem erros
+        if(isset($_FILES['imagemProduto']) && $_FILES['imagemProduto']['error'] === UPLOAD_ERR_OK){
+            
+            $nome_original = $_FILES['imagemProduto']['name'];
+            
+            // Remove espaços para não quebrar o link no navegador
+            $nome_limpo = str_replace(' ', '_', $nome_original);
+            $novo_nome = uniqid() . '_' . $nome_limpo;
 
-		    $novo_nome = uniqid() . '_' . $nome_arquivo;
+            $caminho_completo = $diretorio_destino_imagem . $novo_nome;
 
-		    $caminho_completo = $diretorio_destino_imagem . $novo_nome;
+            // move_uploaded_file: tira da pasta temporária e põe na pasta do projeto
+            if(move_uploaded_file($_FILES['imagemProduto']['tmp_name'], $caminho_completo)){
+                try{    
+                    $stmt = $pdo->prepare("INSERT INTO PRODUTO (nm_produto, ds_produto, nm_categoria, caminho_imagem, vl_produto, qt_estoque_produto) VALUES (:nm, :descr, :cat, :img, :prc, :qtd)");
 
-		    if(move_uploaded_file($_FILES['imagemProduto']['tmp_name'], $caminho_completo)){
-		        echo "Arquivo enviado com sucesso!";
-		    } else {
-		        echo "Erro ao enviar o arquivo.";
-		    }
-		} else {
-		    echo "Nenhum arquivo selecionado.";
-		}
+                    $stmt->execute([
+                        ':nm' => $nome,
+                        ':descr' => $descricao,
+                        ':cat' => $categoria,
+                        ':img' => $caminho_completo,
+                        ':prc' => $preco,
+                        ':qtd' => $quantidade
+                    ]);
 
-		try{	
-			$stmt = $pdo->prepare("INSERT INTO PRODUTO ( nm_produto, ds_produto, nm_categoria, caminho_imagem, vl_produto, qt_estoque_produto) VALUES (:nm, :descr, :cat, :img, :prc, :qtd)");
-
-			$stmt->bindParam(':nm', $nome);
-			$stmt->bindParam(':descr', $descricao);
-			$stmt->bindParam(':cat', $categoria);
-			$stmt->bindParam(':img', $caminho_completo);
-			$stmt->bindParam(':prc', $preco);
-			$stmt->bindParam(':qtd', $quantidade);
-
-			$stmt->execute();
-
-			echo "<script>
-					alert('produto cadastrado');
-					window.location.href = 'cadastro_produtos.php';
-				</script>";
-		}catch(PDOExecption $e){
-			echo "Erro ao cadastrar produto: <br>" . $e->getMessage();
-		}
-	}
+                    echo "<script>
+                            alert('Produto cadastrado com sucesso!');
+                            window.location.href = 'cadastro_produtos.php';
+                        </script>";
+                }catch(PDOException $e){
+                    echo "Erro ao salvar no banco: " . $e->getMessage();
+                }
+            } else {
+                echo "Erro: O PHP não conseguiu mover o arquivo. Tente rodar: sudo chmod -R 777 src/images/uploads/";
+            }
+        } else {
+            echo "Erro no upload: Verifique se o arquivo não é muito grande.";
+        }
+    }
 ?>

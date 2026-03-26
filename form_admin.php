@@ -1,5 +1,5 @@
 <h1>Área Restrita!</h1>
-<form class="form" action="" method="POST">
+<form class="form" action="admin.php" method="POST">
 	<section class="form-inputs">
 		<label for="usuarioAdmin">Usuário: </label>
 		<input type="text" name="usuarioAdmin" id="usuarioAdmin" required>
